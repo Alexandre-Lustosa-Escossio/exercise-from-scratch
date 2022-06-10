@@ -5,5 +5,13 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
     },
   });
-  Patient.associate('plans');
+  Patient.associate = (models) => {
+    Patient.belongsTo(models.Plan, {
+      foreignKey: 'plan_id', as: 'plans',
+    });
+    Patient.hasMany(models.Patient_Surgery, {
+      foreignKey: 'patient_id', as: 'patient',
+    });
+  };
+  return Patient;
 };
