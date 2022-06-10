@@ -15,9 +15,11 @@ module.exports = {
   test: {
     ...config,
     database: 'jwt_exercise_test',
+
   },
   production: {
     ...config,
     database: 'jwt_exercise',
+
   },
 };
